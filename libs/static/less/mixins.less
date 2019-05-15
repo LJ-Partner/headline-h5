@@ -1,0 +1,369 @@
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+基础flex布局
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.flex(){
+    flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content:center;
+    -webkit-justify-content:center;
+}
+.flex-column(){
+    flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content:center;
+    -webkit-justify-content:center;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+列表文本
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.list-title () {
+    font-size: @list-title-size;
+    color: @list-title-color;
+    line-height: @list-title-line-height;
+    font-weight: @list-title-weight;
+}
+.list-subinfo () {
+    font-size: @list-subinfo-size;
+    color: @list-subinfo-color;
+    line-height: @list-subinfo-line-height;
+    font-weight: @list-subinfo-weight;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+详情文本
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.detail-title () {
+    font-size: @detail-title-size;
+    color: @detail-title-color;
+    line-height: @detail-title-line-height;
+    font-weight: @detail-title-weight;
+}
+.detail-subinfo () {
+    font-size: @detail-subinfo-size;
+    color: @detail-subinfo-color;
+    line-height: @detail-subinfo-line-height;
+    font-weight: @detail-subinfo-weight;
+}
+.detail-content () {
+    font-size: @detail-content-size;
+    color: @detail-content-color;
+    line-height: @detail-content-line-height;
+    //font-weight: @detail-content-weight;
+}
+.detail-content2 () {
+    font-size: @detail-content-size;
+    line-height: @detail-content-line-height;
+    font-weight: @detail-content-weight;
+}
+.detail-lightest () {
+    font-size: @detail-lightest-size;
+    color: @detail-lightest-color;
+    line-height: @detail-lightest-line-height;
+    font-weight: @detail-lightest-weight;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+border
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.border-bottom () {
+    border-bottom: 1px solid @border-color;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+基础按钮
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.btn() {
+    padding:3px 7px;
+    border:none;
+    outline: none;
+    -webkit-appearance: none;
+}
+.btn-red() {
+    .btn();
+    color:#fff;
+    background: @color-red;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+基础radio按钮
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.radio() {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    overflow: visible;
+    border: 0;
+    background: 0 0;
+    -webkit-appearance: none;
+    &:before {
+        content: '';
+        display: block;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #717171;
+        border-radius: 13px;
+        background-clip: padding-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    &:checked:after {
+        content: '';
+        display: block;
+        width: 8px;
+        height: 8px;
+        background: #d91919;
+        border-radius: 7px;
+        position: absolute;
+        left: 6px;
+        top: 6px;
+    }
+    &:disabled {
+        &:before{
+            border-color: @bg-border-color;
+            background: @bg-color;
+        }
+    }
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+基础文本输入框
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.txt(){
+    padding:3px 7px;
+    border:none;
+    outline: none;
+    -webkit-appearance: none;
+    .border-radius(10px);
+    border:1px solid #d6d7de;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+圆角
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.border-radius(@radius) {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+}
+.border-top-radius(@radius) {
+    -moz-border-top-right-radius: @radius;
+    -moz-border-top-left-radius: @radius;
+    -webkit-border-top-right-radius: @radius;
+    -webkit-border-top-left-radius: @radius;
+    border-top-right-radius: @radius;
+    border-top-left-radius: @radius;
+}
+.border-right-radius(@radius) {
+    -moz-border-bottom-right-radius: @radius;
+    -moz-border-top-right-radius: @radius;
+    -webkit-border-bottom-right-radius: @radius;
+    -webkit-border-top-right-radius: @radius;
+    border-bottom-right-radius: @radius;
+    border-top-right-radius: @radius;
+}
+.border-bottom-radius(@radius) {
+    -moz-border-bottom-right-radius: @radius;
+    -moz-border-bottom-left-radius: @radius;
+    -webkit-border-bottom-right-radius: @radius;
+    -webkit-border-bottom-left-radius: @radius;
+    border-bottom-right-radius: @radius;
+    border-bottom-left-radius: @radius;
+}
+.border-left-radius(@radius) {
+    -moz-border-bottom-left-radius: @radius;
+    -moz-border-top-left-radius: @radius;
+    -webkit-border-bottom-left-radius: @radius;
+    -webkit-border-top-left-radius: @radius;
+    border-bottom-left-radius: @radius;
+    border-top-left-radius: @radius;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+背景渐变
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//线性渐变
+.linear-gradient(@direction:0deg, @color1, @color2){
+    /*
+    @direction： 0deg==to top（向上）；90deg==to right（向右）；180deg==to bottom（向下）；270deg==to left（向左）；45deg==to top right（向右上角）；
+    @colorN： 可以用颜色名称，如white；可以用16位色值，如#ffffff；也可以用透明度，如rgba(255,255,255,0.5)；    还可以指定颜色位置，用百分比值或者长度值表示，如：rgba(255,255,255,0.5) 20%；
+    */
+    background: -webkit-linear-gradient(@direction, @color1, @color2);
+    background: -moz-linear-gradient(@direction, @color1, @color2);
+    background: -ms-linear-gradient(@direction, @color1, @color2);
+    background: -o-linear-gradient(@direction, @color1, @color2);
+    background: linear-gradient(@direction, @color1, @color2);
+}
+.linear-gradient-color3(@direction:0deg, @color1, @color2, @color3){
+    background: -webkit-linear-gradient(@direction, @color1, @color2, @color3);
+    background: -moz-linear-gradient(@direction, @color1, @color2, @color3);
+    background: -ms-linear-gradient(@direction, @color1, @color2, @color3);
+    background: -o-linear-gradient(@direction, @color1, @color2, @color3);
+    background: linear-gradient(@direction, @color1, @color2, @color3);
+}
+//径向渐变
+
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+文本省略
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//单行省略
+.ellipsis() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    //对IE7+ | Safari的兼容
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+   
+    //对FireFox的兼容
+}
+//多行省略
+.multi-ellipsis(@row) {
+    overflow: hidden;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @row;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+过渡效果
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.transition(@property, @duration, @function){// @delay
+    -webkit-transition: @property @duration @function;
+    -ms-transition: @property @duration @function;
+    -moz-transition: @property @duration @function;
+    -o-transition: @property @duration @function;
+    transition: @property @duration @function;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+转换
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+//旋转
+.rotate(@angle:0deg) {
+    transform: rotate(@angle);
+    -ms-transform: rotate(@angle);  /* IE 9 */
+    -moz-transform: rotate(@angle);     /* Firefox */
+    -webkit-transform: rotate(@angle); /* Safari以及Chrome */
+    -o-transform: rotate(@angle);   /* Opera */
+}
+//缩放
+.scale(@x,@y){
+    transform: scale(@x,@y);
+    -ms-transform: scale(@x,@y);
+    -moz-transform: scale(@x,@y);
+    -webkit-transform: scale(@x,@y);
+    -o-transform: scale(@x,@y);
+}
+//位移
+.translate(@x,@y){
+    transform: translate(@x,@y);
+    -ms-transform: translate(@x,@y);
+    -moz-transform: translate(@x,@y);
+    -webkit-transform: translate(@x,@y);
+    -o-transform: translate(@x,@y);
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+动画
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.animation(@keyframe, @duration, @function:ease, @count:1){
+    -webkit-animation: @keyframe @duration @function @count;
+    -moz-animation: @keyframe @duration @function @count;
+    -o-animation: @keyframe @duration @function @count;
+    animation: @keyframe @duration @function @count;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+清除浮动
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.clearfix() {
+    *zoom: 1;
+
+    &:after {
+        content: " ";
+        display: block;
+        clear: both;
+        height: 0;
+        font-size: 0;
+        visibility: hidden;
+    }
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+三角箭头(色块)的样式
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.triangle(@size) {
+    height: 0;
+    width: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: @size / 2;
+}
+.triangle-up(@color, @size) {
+    .triangle(@size);
+    border-bottom-color: @color;
+}
+.triangle-down(@color, @size) {
+    .triangle(@size);
+    border-top-color: @color;
+}
+.triangle-left(@color, @size) {
+    .triangle(@size);
+    border-right-color: @color;
+}
+.triangle-right(@color, @size) {
+    .triangle(@size);
+    border-left-color: @color;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+三角箭头（线框）的样式
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.arr(@size) {
+    display: inline-block;
+    width: @size;
+    height: @size;
+    transition: .5s;
+    margin: 0 @size/2 -@size/2 @size/2;
+    border-top: @border solid @color;
+    border-left: @border solid @color;
+}
+.arr-up(@size, @border, @color) {
+    .arr(@size);
+    .rotate(45deg);
+}
+.arr-down(@size, @border, @color) {
+    .arr(@size);
+    .rotate(-135deg);
+}
+.arr-prev(@size, @border, @color) {
+    .arr(@size);
+    .rotate(-45deg);
+}
+.arr-next(@size, @border, @color) {
+    .arr(@size);
+    .rotate(135deg);
+}
+.inline-block() {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+.center-block() {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
